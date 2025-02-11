@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Botella Mágica</title>
+    <link rel="stylesheet" href="./estilo.css">
+    <script src="./script.js"></script>
+</head>
+<body>
+
+    <div class="container">
+        <img src="./bottle-0.png" 
+                 class="botella" id="botella" alt="Botella Mágica">
+        
+        <!-- Mensaje inicial siempre visible -->
+        <p id="mensaje-inicial" class="mensaje-inicial">Haz clic en la botella para ver tu mensaje.</p>
+        
+        <!-- Sonido de agitación -->
+        <audio id="shakeSound">
+            <source src="./shake-meds-87054.mp3" type="audio/mp3">
+        </audio>
+    </div>
+
+    <!-- Mensaje secreto oculto hasta que se haga clic -->
+    <div id="mensaje-secreto" class="mensaje-secreto">
+        <p class="firma"> - Victoria</p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,110 @@
+@import url('https://fonts.googleapis.com/css2?family=Niconne&family=Tinos:ital,wght@0,400;0,700;1,400;1,700&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
+:root {
+    --ivory: #ede9e3;
+    --nude: #e7d7c9;
+    --dusty-rose: #d4b2a7;
+    --stone: #cdc6c3;
+    --latte: #a38f85;
+}
+body {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    background: linear-gradient(135deg, var(--ivory), var(--nude));
+    font-family: "Ubuntu", sans-serif;
+    text-align: center;
+    background-color: #ede9e3;
+}
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #a38f85db;
+    padding: 1.5rem;
+    border-radius: 1.5rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+.botella {
+    width: 10rem;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+.shake {
+    animation: shake 0.5s ease-in-out;
+}
+@keyframes shake {
+    0% { transform: rotate(0deg); }
+    25% { transform: rotate(10deg); }
+    50% { transform: rotate(-10deg); }
+    75% { transform: rotate(10deg); }
+    100% { transform: rotate(0deg); }
+}
+
+/* Mensaje inicial */
+.mensaje-inicial {
+    font-size: 18px;
+    color: var(--ivory);
+    margin-top: 10px;
+}
+
+/* Mensaje secreto */
+.mensaje-secreto {
+    margin-top: 20px;
+    font-family: "Tinos", serif;
+    font-size: 2rem;
+    color: var(--latte);
+    background: #d4b2a79e;
+    padding: 10px 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    display: none;
+    max-width: 34rem;
+}
+
+.mensaje-secreto .firma {
+    font-family: "Niconne", serif;
+    font-size: 1.75rem;
+    text-align: end;
+    margin-right: 2.5rem;
+}
+
+.mensaje-visible {
+    display: block;
+    opacity: 1;
+}
+
+@keyframes aparecerMensaje {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.mensaje-visible p {
+    animation: aparecerMensaje 0.5s ease-out;
+}
+
+@media screen and (max-width: 480px) {
+    .container {
+        max-width: 14rem;
+    }
+
+    .mensaje-secreto {
+        max-width: 20rem;
+        font-size: 1.75rem;
+    }
+
+    .mensaje-secreto .firma {
+        font-size: 1.5rem;
+    }
+}
