@@ -94,6 +94,29 @@ body {
     animation: aparecerMensaje 0.5s ease-out;
 }
 
+/* Estilo del botón */
+#musicButton {
+    background-color: #fde5e8;
+    border: none;
+    color: white;
+    padding: 8px 16px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 32px;
+    transition: background-color 0.3s;
+    margin-bottom: 30px;
+}
+
+#musicButton:hover {
+    background-color: #e8bec3;
+}
+
+/* Cuando el botón está apagado (música detenida) */
+#musicButton.off {
+    background-color: rgb(180 180 180);
+    text-decoration: line-through 3px black;
+}
+
 @media screen and (max-width: 480px) {
     .container {
         max-width: 14rem;

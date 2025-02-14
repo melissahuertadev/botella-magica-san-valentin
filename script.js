@@ -13,6 +13,31 @@ document.addEventListener("DOMContentLoaded", () => {
     const firma = mensajeSecreto.querySelector(".firma");
     const shakeSound = document.getElementById("shakeSound");
 
+
+    const musicButton = document.getElementById("musicButton");
+    const bgMusic = document.getElementById("bgMusic");
+    const musicIcon = document.getElementById("musicIcon");
+
+    // Inicializa el estado del botón (música apagada)
+    musicButton.classList.add("off");
+    
+    // Evento para reproducir la música al hacer clic
+    musicButton.addEventListener("click", () => {
+        if (bgMusic.paused) {
+            // Reproducir música
+            bgMusic.play().catch((error) => {
+                alert("Error al intentar reproducir la música:");
+            });
+            // Cambiar el ícono y el estado del botón
+            musicButton.classList.remove("off");
+        } else {
+            // Pausar música
+            bgMusic.pause();
+            // Cambiar el ícono y el estado del botón
+            musicButton.classList.add("off");
+        }
+    });
+    
     botella.addEventListener("click", () => {
         // Reproducir sonido
         shakeSound.play();
