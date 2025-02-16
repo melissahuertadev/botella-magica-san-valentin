@@ -12,7 +12,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const mensajeSecreto = document.getElementById("mensaje-secreto");
     const firma = mensajeSecreto.querySelector(".firma");
     const shakeSound = document.getElementById("shakeSound");
-
+    //Evitar mensajes repetidos consecutivamente
+    let ultimoIndice = -1;
 
     const musicButton = document.getElementById("musicButton");
     const bgMusic = document.getElementById("bgMusic");
@@ -49,12 +50,18 @@ document.addEventListener("DOMContentLoaded", () => {
         // Mostrar un mensaje aleatorio después de la animación
         setTimeout(() => {
             botella.classList.remove("shake");
-            const randomIndex = Math.floor(Math.random() * mensajes.length);
+
+            let randomIndex;
+            do {
+                randomIndex = Math.floor(Math.random() * mensajes.length);
+            } while (randomIndex === ultimoIndice);
+            ultimoIndice = randomIndex;
+            
             const mensajeTexto = mensajes[randomIndex];
 
             // Limpiar solo los mensajes anteriores sin eliminar la firma
-            mensajeSecreto.innerHTML = ""; // Borra todo el contenido
-            mensajeSecreto.appendChild(firma); // Vuelve a agregar la firma
+            mensajeSecreto.innerHTML = "";
+            mensajeSecreto.appendChild(firma);
 
             // Crear un nuevo párrafo con el mensaje
             const nuevoMensaje = document.createElement("p");
